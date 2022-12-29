@@ -1,17 +1,17 @@
 const express = require("express");
-const fs = require("fs");
+const tourController = require('./../controllers/tourController');
 
 const router = express.Router();
 
 router
     .route('/')
-    .get(getAllTours)
-    .post(createTour);
+    .get(tourController.getAllTours)
+    .post(tourController.createTour);
 
 router
     .route('/:id')
-    .get(getTour)
-    .patch(changeTour)
-    .delete(deleteTour);
+    .get(tourController.getTour)
+    .patch(tourController.changeTour)
+    .delete(tourController.deleteTour);
 
 module.exports = router;
